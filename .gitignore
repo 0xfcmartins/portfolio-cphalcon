@@ -1,0 +1,12 @@
+.idea
+.DS_Store
+._*
+.project
+.settings
+/app/cache/*.php
+node_modules
+.composer
+/app/libraries
+/public/*.log
+.phpunit.result.cache
+/dev_tools

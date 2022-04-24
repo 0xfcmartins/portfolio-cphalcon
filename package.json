@@ -1,0 +1,22 @@
+{
+  "name": "phalcon-mvc",
+  "version": "0.000.002",
+  "description": "This is a clean of MVC file structures you can use to develop and employ using Phalcon >= 3.0.x",
+  "author": "Francisco Martins (info@francisco-martins.pt)",
+  "license": "SEE LICENSE IN LICENSE",
+  "keywords": [
+    "grunt, sass"
+  ],
+  "devDependencies": {
+    "grunt": "^1.4.0",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^4.0.0",
+    "grunt-contrib-jshint": "^3.0.0",
+    "grunt-contrib-sass": "^2.0.0",
+    "grunt-contrib-uglify": "^5.0.1"
+  },
+  "dependencies": {
+    "composer": "^4.0.0"
+  }
+}

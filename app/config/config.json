@@ -1,0 +1,29 @@
+{
+  "domain": "/",
+  "system": {
+    "volt": {
+      "voltCache": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/cache\/",
+      "compile": true,
+      "extension": ".php",
+      "separator": "_",
+      "stat": true
+    }
+  },
+  "application": {
+    "controllersDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/controllers\/",
+    "viewsDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/views\/",
+    "pluginsDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/plugins\/",
+    "libraryDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/library\/",
+    "cacheDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/cache\/",
+    "servicesDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/services\/",
+    "utilsDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/utils\/",
+    "baseUri": "\/mvc\/simple-volt\/"
+  },
+  "namespaces": {
+    "Fcmartins\\Services": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/services\/",
+    "Fcmartins\\Services\\Core": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/services\/core\/",
+    "Fcmartins\\Utils": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/utils\/",
+    "Fcmartins\\Plugins": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/plugins\/",
+    "Fcmartins\\Exceptions": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/exceptions\/"
+  }
+}
