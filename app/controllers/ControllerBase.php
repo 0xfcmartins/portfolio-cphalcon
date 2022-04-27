@@ -30,7 +30,8 @@ class ControllerBase extends Controller
 
         $headerCollection = $this->assets->collection('header');
         $headerCollection->addCss('/css/background.css');
-        $headerCollection->addJs('/js/generic/background.js');
+        //$headerCollection->addJs('/js/generic/background.js');
+        $headerCollection->addJs('/js/generic/test.js');
     }
 
     /**
