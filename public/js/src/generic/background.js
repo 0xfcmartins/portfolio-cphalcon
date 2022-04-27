@@ -20,8 +20,8 @@ window.onload = () => {
                 b: 49
             },
             mouse: {
-                r: 34,
-                g: 225,
+                r: 233,
+                g: 134,
                 b: 25
             }
         }
@@ -58,9 +58,12 @@ window.onload = () => {
             this.directionY = directionY;
             this.size = size;
             this.color = color;
+            this.radius = (true ? Math.random() : 1) * 10;
         }
 
         draw() {
+            checkOverlap(this);
+
             context2d.beginPath();
             context2d.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
             context2d.fillStyle = this.color;
@@ -96,21 +99,6 @@ window.onload = () => {
     };
 
     function calculateDistance(from, to) {
-        /*let xPoint;
-        let yPoint;
-
-        if (undefinedAsZero(from.x) > undefinedAsZero(to.x))
-            xPoint = (undefinedAsZero(from.x) - undefinedAsZero(to.x)) ^ 2;
-        else
-            xPoint = (undefinedAsZero(to.x) - undefinedAsZero(from.x)) ^ 2;
-
-        if (undefinedAsZero(from.y) > undefinedAsZero(to.y))
-            yPoint = (undefinedAsZero(from.y) - undefinedAsZero(to.y)) ^ 2;
-        else
-            yPoint = (undefinedAsZero(to.y) - undefinedAsZero(from.y)) ^ 2;
-
-        return Math.sqrt(xPoint + yPoint);*/
-
         let distanceX = (from.x - to.x) * (from.x - to.x);
         let distanceY = (from.y - to.y) * (from.y - to.y);
 
@@ -121,7 +109,7 @@ window.onload = () => {
         for (let from = 0; from < particles.length; from++) {
             for (let to = 0; to < particles.length; to++) {
                 let distance = calculateDistance(particles[from], particles[to]);
-                if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                if (distance < (canvas.width / 10) * (canvas.height / 10)) {
                     drawVertice(particles[from], particles[to], calculateColor(config.color.edges, distance));
                 }
             }
@@ -137,16 +125,40 @@ window.onload = () => {
         }
     }
 
+    function checkOverlap(particle) {
+        for (var i = 0; i < particles.length; i++) {
+            var checkParticle = particles;
+
+            var dx = particle.x - checkParticle.x,
+                dy = particle.y - checkParticle.y,
+                dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist <= particle.radius + checkParticle.radius) {
+                particle.x = position ? position.x : Math.random() * canvas.width;
+                particle.y = position ? position.y : Math.random() * canvas.height;
+                checkOverlap(particle);
+            }
+        }
+    };
+
+    calculateParticles = function () {
+        let area = canvas.width * canvas.height / 1000;
+        let nb_particles = area * 80 / 800;
+
+        return Math.abs(nb_particles);
+    };
+
     function init() {
         particles = [];
-        let numeberofparticles = (canvas.width * canvas.height) / 9000;
+        let numeberofparticles = calculateParticles();
+        console.log(numeberofparticles)
         for (let i = 0; i < numeberofparticles; i++) {
             let size = (Math.random() * 2) + 1;
             let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
             let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-            let directionX = (Math.random() * 1) - 0.5;
-            let directionY = (Math.random() * 1) - 0.5;
-            let color = 'rgba(185,185,185,0.12)';
+            let directionX = (Math.random() * 1.5) - 0.01;
+            let directionY = (Math.random() * 1.5) - 0.01;
+            let color = 'rgba(255,47,0,0.08)';
 
             particles.push(new Particle(x, y, directionX, directionY, size, color));
         }
