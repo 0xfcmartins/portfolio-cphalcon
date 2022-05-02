@@ -1,10 +1,10 @@
 <?php
 
+use Phalcon\Assets\Asset\Js;
 use Phalcon\Http\Response;
 use Phalcon\Mvc\Controller;
-use Phalcon\Url;
+use Phalcon\Mvc\Url;
 use Phalcon\Mvc\View;
-use Phalcon\Session\Manager;
 use Fcmartins\Exceptions\Security\AccessException;
 use Fcmartins\Utils\Translator;
 
@@ -28,14 +28,15 @@ class ControllerBase extends Controller
         $this->view->meta_title = $this->translator->getConfig("meta_title");
         $this->view->meta_image = $this->translator->getConfig("meta_image");
 
-        $headerCollection = $this->assets->collection('header');
-        $headerCollection->addCss('/css/background.css');
-        //$headerCollection->addJs('/js/generic/background.js');
-        $headerCollection->addJs('/js/generic/test.js');
+        $css = $this->assets->collection('generic.css');
+        $css->addCss('/css/background.css');
+
+        $scripts = $this->assets->collection('generic.js');
+        $scripts->addJs('/js/src/generic/background.js', true);
     }
 
     /**
-     * Defines that an action can only be accesed via XMLHttpRequest POST
+     * Defines that an action can only be accessed via XMLHttpRequest POST
      *
      * @throws AccessException
      */

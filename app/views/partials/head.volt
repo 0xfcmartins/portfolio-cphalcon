@@ -17,7 +17,8 @@
     <link rel="icon" href="/assets/favicon.png" type="image/png"/>
     <link rel="shortcut icon" href="/assets/favicon.ico"/>
 
-    <link rel="stylesheet" href="/css/background.css">
-    <script type="text/javascript" src="/js/src/generic/background.js"></script>
+
+    {{ this.assets.outputCss('generic.css') }}
+    {{ this.assets.outputJs('generic.js') }}
 
 </head>

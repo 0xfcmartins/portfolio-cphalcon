@@ -7,7 +7,6 @@ use Phalcon\Mvc\Dispatcher;
 use Phalcon\Url;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Volt;
-use Phalcon\Session\Manager as Session;
 use Phalcon\Session\Adapter\Stream;
 use Fcmartins\Services\Core\DependencyInjector;
 use Fcmartins\Utils\Translator;
