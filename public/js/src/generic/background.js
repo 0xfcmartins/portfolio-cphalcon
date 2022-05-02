@@ -58,12 +58,10 @@ window.onload = () => {
             this.directionY = directionY;
             this.size = size;
             this.color = color;
-            this.radius = (true ? Math.random() : 1) * 10;
+            this.radius = 20;
         }
 
         draw() {
-            checkOverlap(this);
-
             context2d.beginPath();
             context2d.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
             context2d.fillStyle = this.color;
@@ -85,32 +83,35 @@ window.onload = () => {
         }
     }
 
-    let calculateColor = function (color, alphaFactor) {
-        return `rgba(${color.r},${color.g},${color.b},${1 - (alphaFactor / 20000)})`;
-    }
+    let drawVertice = (fromParticle, toParticle, colorConf, distance) => {
+        let opacity = 1;
+        var opacity_line = opacity - (distance / (1 / opacity)) / 100;
 
-    let drawVertice = (fromParticle, toParticle, color) => {
-        context2d.strokeStyle = color;
-        context2d.lineWidth = 1;
-        context2d.beginPath();
-        context2d.moveTo(fromParticle.x, fromParticle.y);
-        context2d.lineTo(toParticle.x, toParticle.y);
-        context2d.stroke();
+        if (opacity_line > 0) {
+            context2d.strokeStyle = `rgba(${colorConf.r},${colorConf.g},${colorConf.b},${opacity_line})`;
+            context2d.lineWidth = 1;
+
+            context2d.beginPath();
+            context2d.moveTo(fromParticle.x, fromParticle.y);
+            context2d.lineTo(toParticle.x, toParticle.y);
+            context2d.stroke();
+            context2d.closePath();
+        }
     };
 
     function calculateDistance(from, to) {
-        let distanceX = (from.x - to.x) * (from.x - to.x);
-        let distanceY = (from.y - to.y) * (from.y - to.y);
+        let dx = from.x - to.x;
+        let dy = from.y - to.y;
 
-        return (distanceX) + (distanceY);
+        return Math.sqrt(dx * dx + dy * dy);
     }
 
     function connectEdges() {
         for (let from = 0; from < particles.length; from++) {
             for (let to = 0; to < particles.length; to++) {
                 let distance = calculateDistance(particles[from], particles[to]);
-                if (distance < (canvas.width / 10) * (canvas.height / 10)) {
-                    drawVertice(particles[from], particles[to], calculateColor(config.color.edges, distance));
+                if (distance < 80) {
+                    drawVertice(particles[from], particles[to], config.color.edges, distance);
                 }
             }
         }
@@ -119,23 +120,23 @@ window.onload = () => {
     function connectMouse() {
         for (let from = 0; from < particles.length; from++) {
             let distance = calculateDistance(particles[from], mouse);
-            if (distance < (canvas.width / 3) * (canvas.height / 3)) {
-                drawVertice(particles[from], mouse, calculateColor(config.color.mouse, distance));
+            if (distance < 150) {
+                drawVertice(particles[from], mouse, config.color.mouse, distance);
             }
         }
     }
 
     function checkOverlap(particle) {
         for (var i = 0; i < particles.length; i++) {
-            var checkParticle = particles;
+            var checkParticle = particles[i];
 
             var dx = particle.x - checkParticle.x,
                 dy = particle.y - checkParticle.y,
                 dist = Math.sqrt(dx * dx + dy * dy);
 
             if (dist <= particle.radius + checkParticle.radius) {
-                particle.x = position ? position.x : Math.random() * canvas.width;
-                particle.y = position ? position.y : Math.random() * canvas.height;
+                particle.x = Math.random() * canvas.width;
+                particle.y = Math.random() * canvas.height;
                 checkOverlap(particle);
             }
         }
@@ -143,7 +144,7 @@ window.onload = () => {
 
     calculateParticles = function () {
         let area = canvas.width * canvas.height / 1000;
-        let nb_particles = area * 80 / 800;
+        let nb_particles = area * 70 / 800;
 
         return Math.abs(nb_particles);
     };
@@ -156,11 +157,14 @@ window.onload = () => {
             let size = (Math.random() * 2) + 1;
             let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
             let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
-            let directionX = (Math.random() * 1.5) - 0.01;
-            let directionY = (Math.random() * 1.5) - 0.01;
-            let color = 'rgba(255,47,0,0.08)';
+            let directionX = (Math.random() * 0.5) - 0.01;
+            let directionY = (Math.random() * 0.5) - 0.01;
+            let color = 'rgba(255,255,255,0.08)';
 
-            particles.push(new Particle(x, y, directionX, directionY, size, color));
+            let particle = new Particle(x, y, directionX, directionY, size, color);
+            checkOverlap(particle);
+
+            particles.push(particle);
         }
     }
 
