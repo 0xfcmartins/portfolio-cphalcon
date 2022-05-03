@@ -21,6 +21,8 @@ return new Config([
     "config" => [
         "page_title" => "Phalcon MVC",
         "meta_title" => "Phalcon MVC clean template",
-        "meta_image" => "none"
+        "meta_image" => "none",
+        "favicon_png" => "/assets/favicon.png",
+        "favicon_ico" => "/assets/favicon.ico"
     ]
 ]);

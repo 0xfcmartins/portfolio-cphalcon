@@ -1,9 +1,9 @@
 <?php
 
-use Phalcon\Assets\Asset\Js;
 use Phalcon\Http\Response;
 use Phalcon\Mvc\Controller;
-use Phalcon\Mvc\Url;
+use Phalcon\Session\Manager as Session;
+use Phalcon\Url;
 use Phalcon\Mvc\View;
 use Fcmartins\Exceptions\Security\AccessException;
 use Fcmartins\Utils\Translator;
@@ -11,7 +11,7 @@ use Fcmartins\Utils\Translator;
 /**
  * Base controller that should only include generic methods
  *
- * @property Manager $session Application session adapter
+ * @property Session $session Application session adapter
  * @property Url $url Application url adapter
  * @property View $view Application view adapter
  * @property Translator $translator Application translator utils as a service

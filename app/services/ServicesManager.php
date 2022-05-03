@@ -3,6 +3,7 @@
 namespace Fcmartins\Services;
 
 use Phalcon\Events\Manager;
+use Phalcon\Session\Manager as Session;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Url;
 use Phalcon\Mvc\View;
@@ -71,7 +72,6 @@ class ServicesManager extends DependencyInjector
 
         return $volt;
     }
-
 
     public function initSession(): Session
     {

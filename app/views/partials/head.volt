@@ -14,9 +14,8 @@
     <meta property="og:title" content="{{ meta_title }}">
     <meta property="og:image" content="{{ meta_image }}">
 
-    <link rel="icon" href="/assets/favicon.png" type="image/png"/>
-    <link rel="shortcut icon" href="/assets/favicon.ico"/>
-
+    <link rel="icon" href="{{ this.app.getConfig('favicon_png') }}" type="image/png"/>
+    <link rel="shortcut icon" href="{{ this.app.getConfig('favicon_ico') }}"/>
 
     {{ this.assets.outputCss('generic.css') }}
     {{ this.assets.outputJs('generic.js') }}

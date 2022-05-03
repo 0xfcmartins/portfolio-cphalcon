@@ -1,5 +1,5 @@
 window.onload = () => {
-    const canvas = document.getElementById('canvas1');
+    const canvas = document.getElementById('particles-background');
     const context2d = canvas.getContext('2d');
 
     let particles = [];
@@ -140,7 +140,7 @@ window.onload = () => {
                 checkOverlap(particle);
             }
         }
-    };
+    }
 
     calculateParticles = function () {
         let area = canvas.width * canvas.height / 1000;
