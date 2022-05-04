@@ -85,7 +85,7 @@ window.onload = () => {
 
     let drawVertice = (fromParticle, toParticle, colorConf, distance) => {
         let opacity = 1;
-        var opacity_line = opacity - (distance / (1 / opacity)) / 100;
+        let opacity_line = opacity - (distance / (1 / opacity)) / 100;
 
         if (opacity_line > 0) {
             context2d.strokeStyle = `rgba(${colorConf.r},${colorConf.g},${colorConf.b},${opacity_line})`;
@@ -127,10 +127,10 @@ window.onload = () => {
     }
 
     function checkOverlap(particle) {
-        for (var i = 0; i < particles.length; i++) {
-            var checkParticle = particles[i];
+        for (let i = 0; i < particles.length; i++) {
+            let checkParticle = particles[i];
 
-            var dx = particle.x - checkParticle.x,
+            let dx = particle.x - checkParticle.x,
                 dy = particle.y - checkParticle.y,
                 dist = Math.sqrt(dx * dx + dy * dy);
 
@@ -142,12 +142,12 @@ window.onload = () => {
         }
     }
 
-    calculateParticles = function () {
+    function calculateParticles() {
         let area = canvas.width * canvas.height / 1000;
         let nb_particles = area * 70 / 800;
 
         return Math.abs(nb_particles);
-    };
+    }
 
     function init() {
         particles = [];

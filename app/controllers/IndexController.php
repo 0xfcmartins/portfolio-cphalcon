@@ -10,12 +10,24 @@ class IndexController extends ControllerBase
 {
     public function indexAction()
     {
-        $this->view->content = "";
+        try {
+
+            $this->view->innerText = "Francisco Martins";
+        } catch (Exception $e) {
+
+            return parent::HandleException(__CLASS__, __FUNCTION__, $e);
+        }
     }
 
     public function anotherAction()
     {
-        $this->view->content = "AnotherPage!";
+        try {
+
+            $this->view->innerText = "AnotherPage";
+        } catch (Exception $e) {
+
+            return parent::HandleException(__CLASS__, __FUNCTION__, $e);
+        }
     }
 
 }

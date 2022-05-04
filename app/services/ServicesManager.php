@@ -22,7 +22,7 @@ use Fcmartins\Utils\Translator;
 class ServicesManager extends DependencyInjector
 {
 
-    public function initDispatcher(): Dispatcher
+    protected function initDispatcher(): Dispatcher
     {
         $eventsManager = new Manager();
         $dispatcher = new Dispatcher();
@@ -36,7 +36,7 @@ class ServicesManager extends DependencyInjector
         return $this->getConfig()->application->baseUri;
     }
 
-    public function initUrl(): Url
+    protected function initUrl(): Url
     {
         $url = new Url();
         $url->setBaseUri(
@@ -46,7 +46,7 @@ class ServicesManager extends DependencyInjector
         return $url;
     }
 
-    public function initView(): View
+    protected function initView(): View
     {
         $view = new View();
         $view->setViewsDir($this->getConfig()->application->viewsDir);
@@ -73,7 +73,7 @@ class ServicesManager extends DependencyInjector
         return $volt;
     }
 
-    public function initSession(): Session
+    protected function initSession(): Session
     {
         $session = new Session();
         $files = new Stream(
