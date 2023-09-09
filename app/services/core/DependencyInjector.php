@@ -2,7 +2,7 @@
 
 namespace Fcmartins\Services\Core;
 
-use Phalcon\Config;
+use Phalcon\Config\Config;
 use Phalcon\DI\FactoryDefault;
 use ReflectionObject;
 
@@ -33,18 +33,18 @@ class DependencyInjector extends FactoryDefault
     /**
      * Bind all the declared services
      */
-    protected function bindServices()
+    protected function bindServices(): void
     {
         $reflection = new ReflectionObject($this);
         $methods = $reflection->getMethods();
 
         foreach ($methods as $method) {
 
-            if ((strlen($method->name) > 10) && (strpos($method->name, 'initShared') === 0)) {
+            if ((strlen($method->name) > 10) && (str_starts_with($method->name, 'initShared'))) {
                 $this->setShared(lcfirst(substr($method->name, 10)), $method->getClosure($this));
             }
 
-            if ((strlen($method->name) > 4) && (strpos($method->name, 'init') === 0)) {
+            if ((strlen($method->name) > 4) && (str_starts_with($method->name, 'init'))) {
                 $this->set(lcfirst(substr($method->name, 4)), $method->getClosure($this));
             }
         }

@@ -11,7 +11,7 @@ use Fcmartins\Services\Core\ApplicationLoader;
 use Fcmartins\Services\ServicesManager;
 
 /**
- * Phalcon application bootstrap
+ * Phalcon's application bootstrap
  *
  * @author Francisco Martins
  * @version 1.000.000, 2022-02-3 22:42

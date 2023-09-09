@@ -1,5 +1,7 @@
 <?php
 
+namespace Fcmartins\Plugins;
+
 use Phalcon\Di\Injectable;
 use Phalcon\Events\Event;
 use Phalcon\Mvc\Dispatcher;

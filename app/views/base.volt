@@ -30,8 +30,6 @@
 	</div>
 <![endif]-->
 
-<canvas id="particles-background"></canvas>
-
 {% block content %}{% endblock %}
 {% block scripts %}{% endblock %}
 

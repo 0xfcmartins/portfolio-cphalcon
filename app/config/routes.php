@@ -2,11 +2,14 @@
 
 use Phalcon\Mvc\Router;
 
-$router = new Router(false);
+$router = new Router(true);
 $router->add('/ajax-cc/example', [
     'controller' => 'Ajax',
     'action' => 'example'
 ]);
-$router->handle();
+
+$router->handle(
+    $_SERVER["REQUEST_URI"]
+);
 
 return $router;

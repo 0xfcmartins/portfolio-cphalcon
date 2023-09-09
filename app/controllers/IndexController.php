@@ -1,5 +1,8 @@
 <?php
 
+use Phalcon\Http\Response;
+use Phalcon\Mvc\View;
+
 /**
  * Root controller and actions
  *
@@ -8,18 +11,20 @@
  */
 class IndexController extends ControllerBase
 {
-    public function indexAction()
+    public function indexAction(): ?Response
     {
         try {
 
             $this->view->innerText = "Francisco Martins";
+
+            return null;
         } catch (Exception $e) {
 
             return parent::HandleException(__CLASS__, __FUNCTION__, $e);
         }
     }
 
-    public function anotherAction()
+    public function anotherAction(): ?Response
     {
         try {
 

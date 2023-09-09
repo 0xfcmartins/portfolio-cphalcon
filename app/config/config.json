@@ -2,7 +2,7 @@
   "domain": "/",
   "system": {
     "volt": {
-      "voltCache": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/cache\/",
+      "voltCache": "C:\\Users\\xicoo\\PhpstormProjects\\madel\/app\/cache\/",
       "compile": true,
       "extension": ".php",
       "separator": "_",
@@ -10,20 +10,19 @@
     }
   },
   "application": {
-    "controllersDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/controllers\/",
-    "viewsDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/views\/",
-    "pluginsDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/plugins\/",
-    "libraryDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/library\/",
-    "cacheDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/cache\/",
-    "servicesDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/services\/",
-    "utilsDir": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/utils\/",
-    "baseUri": "\/mvc\/simple-volt\/"
+    "controllersDir": "C:\\Users\\xicoo\\PhpstormProjects\\madel\/app\/controllers\/",
+    "viewsDir": "C:\\Users\\xicoo\\PhpstormProjects\\madel\/app\/views\/",
+    "pluginsDir": "C:\\Users\\xicoo\\PhpstormProjects\\madel\/app\/plugins\/",
+    "libraryDir": "C:\\Users\\xicoo\\PhpstormProjects\\madel\/app\/library\/",
+    "cacheDir": "C:\\Users\\xicoo\\PhpstormProjects\\madel\/app\/cache\/",
+    "servicesDir": "C:\\Users\\xicoo\\PhpstormProjects\\madel\/app\/services\/",
+    "utilsDir": "C:\\Users\\xicoo\\PhpstormProjects\\madel\/app\/utils\/"
   },
   "namespaces": {
-    "Fcmartins\\Services": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/services\/",
-    "Fcmartins\\Services\\Core": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/services\/core\/",
-    "Fcmartins\\Utils": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/utils\/",
-    "Fcmartins\\Plugins": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/plugins\/",
-    "Fcmartins\\Exceptions": "C:\\Users\\Franc\\PhpstormProjects\\portfolio-cphalcon\/app\/exceptions\/"
+    "Fcmartins\\Services": "C:\\Users\\xicoo\\PhpstormProjects\\madel\/app\/services\/",
+    "Fcmartins\\Services\\Core": "C:\\Users\\xicoo\\PhpstormProjects\\madel\/app\/services\/core\/",
+    "Fcmartins\\Utils": "C:\\Users\\xicoo\\PhpstormProjects\\madel\/app\/utils\/",
+    "Fcmartins\\Plugins": "C:\\Users\\xicoo\\PhpstormProjects\\madel\/app\/plugins\/",
+    "Fcmartins\\Exceptions": "C:\\Users\\xicoo\\PhpstormProjects\\madel\/app\/exceptions\/"
   }
 }

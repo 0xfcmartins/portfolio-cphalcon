@@ -2,7 +2,7 @@
 
 namespace Fcmartins\Services\Core;
 
-use Phalcon\Loader;
+use Phalcon\Autoload\Loader;
 use Phalcon\Config\Adapter\Json as JsonConfig;
 
 /**
@@ -18,17 +18,17 @@ class ApplicationLoader
      *
      * @param $baseConfig JsonConfig Base configuration
      */
-    public static function register(JsonConfig $baseConfig)
+    public static function register(JsonConfig $baseConfig): void
     {
         $loader = new Loader();
-        $loader->registerDirs(
+        $loader->setDirectories(
             [
                 $baseConfig->application->controllersDir
             ]
         );
 
         if (isset($baseConfig->namespaces))
-            $loader->registerNamespaces($baseConfig->namespaces->toArray());
+            $loader->setNamespaces($baseConfig->namespaces->toArray());
 
         $loader->register();
     }
